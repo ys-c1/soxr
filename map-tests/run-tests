@@ -1,0 +1,38 @@
+#!/bin/sh
+# Build and run the channel-mapping / down-mix acceptance tests.
+#
+# Adds no new third-party dependency and does not modify the upstream build:
+# libsoxr is configured into ../artifacts/soxr-build and the extension plus
+# its test are compiled directly against the in-tree sources and headers.
+set -e
+
+cd "$(dirname "$0")/.."
+ROOT=$(pwd)
+SRC="$ROOT/src"
+BUILD="$ROOT/artifacts/soxr-build"
+
+# CMake >= 4 dropped support for this project's old cmake_minimum_required.
+POLICY=""
+if cmake --help >/dev/null 2>&1; then
+  POLICY="-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+fi
+
+mkdir -p "$BUILD"
+if [ ! -f "$BUILD/CMakeCache.txt" ]; then
+  cmake -Wno-dev $POLICY -DCMAKE_BUILD_TYPE=Release \
+        -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF -S "$ROOT" -B "$BUILD"
+fi
+cmake --build "$BUILD" -j
+
+CFLAGS="-std=gnu89 -Wall -Wextra -Wnested-externs -Wmissing-prototypes \
+        -Wstrict-prototypes -Wpedantic -O2 -I$SRC"
+TESTCFLAGS="-std=gnu89 -Wall -Wextra -O2 -I$SRC"
+LIBS="$BUILD/src/libsoxr.so -lm"
+
+cc $CFLAGS -c "$SRC/soxr-map.c" -o "$BUILD/soxr-map.o"
+cc $TESTCFLAGS -c "$ROOT/map-tests/channel-map-test.c" -o "$BUILD/channel-map-test.o"
+cc -O2 "$BUILD/soxr-map.o" "$BUILD/channel-map-test.o" $LIBS \
+   -Wl,-rpath,"$BUILD/src" -o "$BUILD/channel-map-test"
+
+echo
+"$BUILD/channel-map-test"

@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/ys/feedback/uidreczz28bBEtZ6kPW/build-base/cmake_install.cmake",
+		"/home/ys/feedback/uidreczz28bBEtZ6kPW/build-base/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

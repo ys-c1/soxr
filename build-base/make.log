@@ -1,0 +1,39 @@
+[ 15%] Building C object src/CMakeFiles/soxr.dir/soxr.c.o
+[ 15%] Building C object src/CMakeFiles/soxr.dir/data-io.c.o
+[ 15%] Building C object src/CMakeFiles/soxr.dir/dbesi0.c.o
+[ 21%] Building C object src/CMakeFiles/soxr.dir/filter.c.o
+[ 26%] Building C object src/CMakeFiles/soxr.dir/fft4g64.c.o
+[ 36%] Building C object src/CMakeFiles/soxr.dir/cr.c.o
+[ 36%] Building C object src/CMakeFiles/soxr.dir/cr32.c.o
+[ 42%] Building C object src/CMakeFiles/soxr.dir/fft4g32.c.o
+[ 47%] Building C object src/CMakeFiles/soxr.dir/cr32s.c.o
+[ 52%] Building C object src/CMakeFiles/soxr.dir/vr32.c.o
+[ 57%] Building C object src/CMakeFiles/soxr.dir/cr64.c.o
+[ 63%] Building C object src/CMakeFiles/soxr.dir/pffft32s.c.o
+[ 68%] Building C object src/CMakeFiles/soxr.dir/cr64s.c.o
+[ 73%] Building C object src/CMakeFiles/soxr.dir/util32s.c.o
+[ 78%] Building C object src/CMakeFiles/soxr.dir/pffft64s.c.o
+[ 84%] Building C object src/CMakeFiles/soxr.dir/util64s.c.o
+/home/ys/feedback/uidreczz28bBEtZ6kPW/src/soxr.c: In function ‘soxr_create’:
+/home/ys/feedback/uidreczz28bBEtZ6kPW/src/soxr.c:396:36: warning: ‘calloc’ sizes specified with ‘sizeof’ in the earlier argument and not in the later argument [-Wcalloc-transposed-args]
+  396 |   if (!error && !(p = calloc(sizeof(*p), 1))) error = "malloc failed";
+      |                                    ^
+/home/ys/feedback/uidreczz28bBEtZ6kPW/src/soxr.c:396:36: note: earlier argument should specify number of elements, later size of each element
+/home/ys/feedback/uidreczz28bBEtZ6kPW/src/soxr.c: In function ‘initialise’:
+/home/ys/feedback/uidreczz28bBEtZ6kPW/src/soxr.c:533:34: warning: ‘calloc’ sizes specified with ‘sizeof’ in the earlier argument and not in the later argument [-Wcalloc-transposed-args]
+  533 |   p->channel_ptrs = calloc(sizeof(*p->channel_ptrs), p->num_channels);
+      |                                  ^
+/home/ys/feedback/uidreczz28bBEtZ6kPW/src/soxr.c:533:34: note: earlier argument should specify number of elements, later size of each element
+/home/ys/feedback/uidreczz28bBEtZ6kPW/src/soxr.c:535:32: warning: ‘calloc’ sizes specified with ‘sizeof’ in the earlier argument and not in the later argument [-Wcalloc-transposed-args]
+  535 |   p->resamplers = calloc(sizeof(*p->resamplers), p->num_channels);
+      |                                ^
+/home/ys/feedback/uidreczz28bBEtZ6kPW/src/soxr.c:535:32: note: earlier argument should specify number of elements, later size of each element
+[ 89%] Linking C shared library libsoxr.so
+[ 89%] Built target soxr
+[ 94%] Building C object src/CMakeFiles/soxr-lsr.dir/soxr-lsr.c.o
+/home/ys/feedback/uidreczz28bBEtZ6kPW/src/soxr-lsr.c: In function ‘src_callback_new’:
+/home/ys/feedback/uidreczz28bBEtZ6kPW/src/soxr-lsr.c:82:37: warning: cast between incompatible function types from ‘src_callback_t’ {aka ‘long int (*)(void *, float **)’} to ‘size_t (*)(void *, const void **, size_t)’ {aka ‘long unsigned int (*)(void *, const void **, long unsigned int)’} [-Wcast-function-type]
+   82 |     error = soxr_set_input_fn(soxr, (soxr_input_fn_t)fn, p, 0);
+      |                                     ^
+[100%] Linking C shared library libsoxr-lsr.so
+[100%] Built target soxr-lsr

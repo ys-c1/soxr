@@ -1,0 +1,29 @@
+-- The C compiler identification is GNU 15.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for pow in m
+-- Looking for pow in m - found
+-- Found OpenMP_C: -fopenmp (found version "4.5")
+-- Found OpenMP: TRUE (found version "4.5")
+-- Trying SIMD32 C flags:  
+-- Performing Test DETECT_SIMD32_C_FLAGS
+-- Performing Test DETECT_SIMD32_C_FLAGS - Success
+-- Found SIMD32:
+-- Trying SIMD64 C flags: -mavx
+-- Performing Test DETECT_SIMD64_C_FLAGS
+-- Performing Test DETECT_SIMD64_C_FLAGS - Success
+-- Found SIMD64: -mavx
+-- Looking for lrint
+-- Looking for lrint - found
+-- Looking for include file fenv.h
+-- Looking for include file fenv.h - found
+-- Looking for include file stdbool.h
+-- Looking for include file stdbool.h - found
+-- Looking for include file stdint.h
+-- Looking for include file stdint.h - found
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/ys/feedback/uidreczz28bBEtZ6kPW/build-base
