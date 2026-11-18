@@ -60,3 +60,7 @@ if (NOT CMAKE_CROSSCOMPILING)
 endif ()
 
 add_test (1-delay-clear ${BIN}1-delay-clear)
+
+# Auto-quality selector acceptance (returns non-zero if any check fails):
+add_test (auto-quality-selector ${BIN}autoq-bench 8)
+add_test (auto-quality-smoke ${BIN}autoq-smoke)
